@@ -9,6 +9,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: Virtual-Host-Ingress
+  namespace: default
 spec:
   rules:
   - host: foo.bar.com
@@ -85,7 +86,8 @@ kind: Ingress
 metadata:
   name: Path-exact-Ingress
   namespace: default
-  annotations:  ingress.citrix.com/path-match-method: “exact”
+  annotations:
+    ingress.citrix.com/path-match-method: “exact”
 spec:
   rules:
   - host:test.example.com
@@ -130,6 +132,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: Default-Ingress
+  namespace: default
 spec:
   backend:
     serviceName: testsvc
